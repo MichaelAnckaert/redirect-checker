@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""checker.py
+"""redirect-checker.py
 Check redirect from a given CSV file
 
 Copyright 2022 Michael Anckaert
@@ -25,7 +25,7 @@ def check_redirects(from_url, to_url):
     elif response.status_code == 301:
         if to_url != response.next.url:
             print(
-                f"ERROR: Wrong 301 redirect for {from_url}! Expected '{to_url}' but got '{response.next_url}'"
+                f"ERROR: Wrong 301 redirect for {from_url}! Expected '{to_url}' but got '{response.next.url}'"
             )
         else:
             print(f"SUCCESS: Good redirect for {from_url}")
@@ -46,8 +46,8 @@ def get_redirects(
             next(reader)
 
         for from_url, to_url in reader:
-            from_url = f"{from_domain}/{from_url}" if from_domain else from_url
-            to_url = f"{to_domain}/{to_url}" if to_domain else to_url
+            from_url = f"{from_domain}{from_url}" if from_domain else from_url
+            to_url = f"{to_domain}{to_url}" if to_domain else to_url
 
             redirects.append((from_url, to_url))
 
@@ -67,7 +67,7 @@ def run(filename, skip_header=False, from_domain=None, to_domain=None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        prog="Checker",
+        prog="redirect-checker.py",
         description="Check URL redirects based on a given list",
     )
     parser.add_argument("filename")

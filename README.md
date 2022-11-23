@@ -6,7 +6,7 @@ This tool reads a given CSV file and checks if redirects are present
 to the given target URL. 
 
 ````
-usage: Checker [-h] [--skip-header] [--from-domain FROM_DOMAIN] [--to-domain TO_DOMAIN] filename
+usage: redirect-checker.py [-h] [--skip-header] [--from-domain FROM_DOMAIN] [--to-domain TO_DOMAIN] filename
 ````
 <
 A sample CSV file is present in `sample.csv`.
