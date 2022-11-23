@@ -11,3 +11,4 @@ usage: Checker [-h] [--skip-header] [--from-domain FROM_DOMAIN] [--to-domain TO_
 <
 A sample CSV file is present in `sample.csv`.
 
+Licensed under the AGPL - Affero General Public License. See file COPYING for the entire license. 
